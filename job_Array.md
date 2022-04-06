@@ -27,6 +27,8 @@ SLURM_ARRAY_TASK_ID = 1   |  file=$(ls *.sam | sed -n ${SLURM_ARRAY_TASK_ID}p)  
 SLURM_ARRAY_TASK_ID = 2   |  file=$(ls *.sam | sed -n ${SLURM_ARRAY_TASK_ID}p)  ->  file=$(ls *.sam | sed -n 2p)  -> file=sampleA.sam
 SLURM_ARRAY_TASK_ID = 3   |  file=$(ls *.sam | sed -n ${SLURM_ARRAY_TASK_ID}p)  ->  file=$(ls *.sam | sed -n 3p)  -> file=control.sam
 ```
+> "sed -n 1p"  returns the first line in the piped data, 2p would return the second line etc.
+
 Our second line of the script will be processed as:
 ```
 bamfile=$(basename -s .sam $file)  -> bamfile=$(basename -s .sam sample1.sam)  ->   bamfile=sample1
